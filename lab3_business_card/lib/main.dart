@@ -1,55 +1,39 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Demo',
         home: Scaffold(
-          backgroundColor: Colors.blue[200],
-          body: SafeArea(
-            child: Center(
-              child: Card(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [TopBar(), MiddleBar(), ButtomBar()],
-                ),
-              ),
-            ),
+          body: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [Part1(), Part2(), Part3()],
           ),
         ));
   }
 }
 
-class TopBar extends StatelessWidget {
+class Part1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        padding: const EdgeInsets.all(10),
+    return Padding(
+        padding: EdgeInsets.all(10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const Icon(Icons.account_circle, size: 60),
+            Icon(Icons.account_circle, size: 60),
             Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  "Lobna Shaheen",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  "Experince Mobile Developer",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.grey),
-                )
+              children: [
+                Text("Lobna Shaheen"),
+                Text("Experince Mobile Developer")
               ],
             )
           ],
@@ -57,38 +41,30 @@ class TopBar extends StatelessWidget {
   }
 }
 
-class MiddleBar extends StatelessWidget {
+class Part2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(10),
+    return Padding(
+      padding: EdgeInsets.all(10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: const [
-          Text(
-            "123 Main Street",
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          Text(
-            "(415) 555-0198",
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
+        children: [
+          Text("123 Main Street"),
+          Text("(415) 555-0198"),
         ],
       ),
     );
   }
 }
 
-class ButtomBar extends StatelessWidget {
-  const ButtomBar({Key? key}) : super(key: key);
-
+class Part3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(10),
+    return Padding(
+      padding: EdgeInsets.all(10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: const [
+        children: [
           Icon(Icons.accessibility),
           Icon(Icons.timer),
           Icon(Icons.phone_android),
