@@ -12,8 +12,13 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         home: Scaffold(
           body: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [Part1(), Part2(), Part3()],
+            children: [
+              Part1(),
+              SizedBox(height: 8),
+              Part2(),
+              SizedBox(height: 16),
+              Part3()
+            ],
           ),
         ));
   }
@@ -22,22 +27,25 @@ class MyApp extends StatelessWidget {
 class Part1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: EdgeInsets.all(10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return Row(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Icon(Icons.account_circle, size: 50),
+        ),
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.account_circle, size: 60),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("Lobna Shaheen"),
-                Text("Experince Mobile Developer")
-              ],
-            )
+            Text(
+              'Flutter McFlutter',
+              style: Theme.of(context).textTheme.headline5,
+            ),
+            Text('Experienced App Developer'),
           ],
-        ));
+        ),
+      ],
+    );
   }
 }
 
@@ -47,7 +55,7 @@ class Part2 extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(10),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text("123 Main Street"),
           Text("(415) 555-0198"),
