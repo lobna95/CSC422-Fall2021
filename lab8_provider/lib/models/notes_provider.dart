@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
-import 'Notes.dart';
+import 'note.dart';
 
-class NotesProviders extends ChangeNotifier {
+class NotesProvider extends ChangeNotifier {
   //Notes List
-  List<Notes> _notes = <Notes>[];
+  List<Note> _notes = <Note>[];
 
-  List<Notes> get getNotes {
+  List<Note> get getNotes {
     return _notes;
   }
 
 // function to add data to list of notes
   void addNotes(String title, String descriptions) {
-    Notes note = new Notes(title, descriptions);
+    Note note = new Note(title, descriptions);
 
     _notes.add(note);
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/models/NotesProvider.dart';
+import 'models/notes_provider.dart';
 import '/screens/Home_Screen.dart';
 import 'package:provider/provider.dart';
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => NotesProviders(),
+      create: (context) => NotesProvider(),
       child: MaterialApp(title: 'Provider Demo', home: Home_Screen()),
     );
   }

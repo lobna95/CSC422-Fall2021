@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '/models/Notes.dart';
-import '/models/NotesProvider.dart';
+import '../models/note.dart';
+import '../models/notes_provider.dart';
 import 'package:provider/provider.dart';
 
 // ignore: camel_case_types
@@ -19,8 +19,8 @@ class Home_Screen extends StatelessWidget {
           )),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<NotesProviders>(
-          builder: (context, NotesProviders data, child) {
+        child: Consumer<NotesProvider>(
+          builder: (context, NotesProvider data, child) {
             return data.getNotes.length != 0
                 ? ListView.builder(
                     itemCount: data.getNotes.length,
@@ -58,7 +58,7 @@ class Home_Screen extends StatelessWidget {
 
 // ignore: must_be_immutable
 class CardList extends StatelessWidget {
-  final Notes notes;
+  final Note notes;
   int index;
 
   CardList(this.notes, this.index);
@@ -84,7 +84,7 @@ class CardList extends StatelessWidget {
                   color: Colors.red,
                   onPressed: () {
                     print("HELLO DELETED");
-                    Provider.of<NotesProviders>(context, listen: false)
+                    Provider.of<NotesProvider>(context, listen: false)
                         .removeNotes(index);
                   }),
             )));
@@ -100,7 +100,7 @@ showAlertDialog(BuildContext context) {
     onPressed: () {
       // Provider.of<NotesProviders>(context, listen: false)
       //     .addNotes(_Title.text, _Description.text);
-      context.read<NotesProviders>().addNotes(_Title.text, _Description.text);
+      context.read<NotesProvider>().addNotes(_Title.text, _Description.text);
       Navigator.of(context).pop();
     },
   );
